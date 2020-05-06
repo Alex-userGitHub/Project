@@ -1,15 +1,39 @@
+let data = document.querySelectorAll(".data"),
+btnStartCount = document.getElementById("start"),
+budget = document.getElementsByClassName(".budget-value") [0], 
+daybudget = document.getElementsByClassName(".daybudget-value") [0], 
+level = document.getElementsByClassName(".level-value") [0], 
+expenses = document.getElementsByClassName(".expenses-value") [0], 
+optionalexpenses = document.getElementsByClassName(".optionalexpenses-value") [0], 
+income = document.getElementsByClassName(".income-value") [0], 
+monthsavings = document.getElementsByClassName(".monthsavings-value") [0], 
+yearsavings = document.getElementsByClassName(".yearsavings-value") [0], 
+
+expensesItem = document.getElementsByClassName(".expenses-item"),
+expensesBtn = document.getElementsByTagName("button") [0], //ищет по тегу - в данном случае по "buttton", в др случае к примеру по div
+optionalExpensesBtn = document.getElementsByTagName("button") [1],
+countBtn = document.getElementsByTagName("button") [2],
+optionalexpensesItem = document.querySelectorAll(".optionalExpenses-item"),
+incomeItem = document.querySelector(".choose-income"),
+checkSavings = document.querySelector("#savings"),
+sumValue = document.querySelector("#sum"),
+percentValue = document.querySelector("#percent"),
+yearValue = document.querySelector(".year"),
+monthValue = document.querySelector(".month");
+
+
 let money, time;
 
-function start() {
-    money = +prompt("Ваш бюджет на месяц?", "");
+btnStartCount.addEventListener("click", function() {
     time = prompt("Введите дату в формате YYYY-MM-DD", "YYYY-MM-DD");
+    money = +prompt("Ваш бюджет на месяц?", "");
     while (isNaN(money) || money == "" || money == null) {
         money = +prompt("Ваш бюджет на месяц?", "");
     }
-}
-
-start();
-
+    appData.budget = money;
+    appData.time = time;
+    budget.textContent = money.toFixed();
+});
 let appData = {
     budget: money,
     expenses: {},
@@ -69,48 +93,5 @@ let appData = {
     }
 
 };
-let data = document.querySelectorAll(".data");
-btnStartCount = document.getElementById("start");
-budget = document.querySelectorAll(".budget-value"); 
-daybudget = document.querySelectorAll(".daybudget-value"); 
-level = document.querySelectorAll(".level-value"); 
-expenses = document.querySelectorAll(".expenses-value"); 
-optionalexpenses = document.querySelectorAll(".optionalexpenses-value"); 
-income = document.querySelectorAll(".income-value"); 
-monthsavings = document.querySelectorAll(".monthsavings-value"); 
-yearsavings = document.querySelectorAll(".yearsavings-value"); 
-buttons = document.getElementsByTagName("button"); //ищет по тегу - в данном случае по "buttton", в др случае к примеру по div
-accept1 = document.querySelector(".expenses-item-btn");
-accept2 = document.querySelector(".optionalexpenses-btn");
-count = document.querySelector(".count-budget-btn");
-optionalexpensesFields = document.querySelectorAll(".optionalExpenses-itm");
-thePossibleMoney = document.querySelector(".choose-income");
-checkBox = document.querySelector("#savings");
-sum = document.querySelector("#sum");
-percent = document.querySelector("#percent");
-year = document.querySelector(".year");
-month = document.querySelector(".month");
-day = document.querySelector(".day");
-console.log(data);
-console.log(btnStartCount);
-console.log(budget);
-console.log(daybudget);
-console.log(level);
-console.log(expenses);
-console.log(optionalexpenses);
-console.log(income);
-console.log(monthsavings);
-console.log(yearsavings);
-console.log(buttons);
-console.log(accept1);
-console.log(accept2);
-console.log(count);
-console.log(optionalexpensesFields);
-console.log(thePossibleMoney);
-console.log(checkBox);
-console.log(sum);
-console.log(percent);
-console.log(year);
-console.log(month);
-console.log(day);
 
+console.log("budget");
